@@ -1,6 +1,6 @@
 {
-  "name": "JFK Emergency Card",
-  "short_name": "JFK Emergency Card",
+  "name": "JFK E-Card",
+  "short_name": "JFK E-Card",
   "start_url": "/Houston-JFK/",
   "display": "standalone",
   "background_color": "#00AEEF",
