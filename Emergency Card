@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HMH - Houston Emergency Contact Card</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f0f0f0; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+    .flip-hint { font-size: 13px; color: #888; margin-bottom: 10px; }
+
+    .card-container {
+      width: 100%;
+      max-width: 400px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .card-container.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      width: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: #fff;
+    }
+
+    .card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotateY(180deg);
+    }
+
+    /* Front styles */
+    .logo-area { background: #fff; text-align: center; padding: 24px 20px 16px; }
+    .logo-area img { max-width: 200px; height: auto; }
+    .emergency-banner { background: #00AEEF; color: #fff; text-align: center; padding: 10px 16px; font-size: 15px; font-weight: bold; }
+    .emergency-banner a { color: #fff; text-decoration: none; }
+    .address { text-align: center; padding: 14px 16px; font-size: 14px; font-weight: bold; color: #222; border-bottom: 1px solid #eee; }
+    .section { padding: 12px 16px; border-bottom: 1px solid #eee; }
+    .section-title { font-size: 14px; font-weight: bold; color: #00AEEF; text-decoration: underline; margin-bottom: 8px; }
+    .contact-row { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; font-size: 13.5px; color: #333; }
+    .contact-row a { color: #333; text-decoration: none; font-weight: 500; }
+    .contact-row a:hover { color: #00AEEF; text-decoration: underline; }
+    .contact-name { flex: 1; padding-right: 8px; }
+    .footer { text-align: center; padding: 10px; font-size: 11px; color: #aaa; }
+
+    /* Back styles */
+    .back-section { padding: 12px 16px; border-bottom: 1px solid #eee; }
+    .back-section-title { font-size: 14px; font-weight: bold; color: #00AEEF; text-decoration: underline; margin-bottom: 6px; }
+    .back-section p, .back-section li { font-size: 13.5px; color: #333; line-height: 1.6; }
+    .back-section ul, .back-section ol { padding-left: 18px; }
+    .back-section .sub-title { font-weight: bold; font-size: 13.5px; color: #222; margin: 6px 0 4px; }
+    .back-top { text-align: center; padding: 16px; border-bottom: 1px solid #eee; }
+    .back-top img { max-width: 160px; height: auto; }
+  </style>
+</head>
+<body>
+
+  <div class="flip-hint">👆 Tap card to flip</div>
+
+  <div class="card-container" onclick="this.classList.toggle('flipped')">
+    <div class="card-inner">
+
+      <!-- FRONT -->
+      <div class="card-front">
+        <div class="logo-area">
+          <img src="HMH color LOGO.jpg" alt="HMH Logo" />
+        </div>
+        <div class="emergency-banner">
+          Emergency Site # <a href="tel:12813714998">1-281-371-4998</a>
+        </div>
+        <div class="address">
+          3300 N. Sam Houston Parkway E.<br/>Houston, TX 77032
+        </div>
+        <div class="section">
+          <div class="section-title">HSSE</div>
+          <div class="contact-row"><span class="contact-name">Iliana Stroud</span><a href="tel:12817984979">1-281-798-4979</a></div>
+          <div class="contact-row"><span class="contact-name">David Stambaugh</span><a href="tel:18324150812">1-832-415-0812</a></div>
+          <div class="contact-row"><span class="contact-name">Michael Valencia</span><a href="tel:13463457554">1-346-345-7554</a></div>
+        </div>
+        <div class="section">
+          <div class="section-title">Important Numbers</div>
+          <div class="contact-row"><span class="contact-name">Emergency Services</span><a href="tel:911">911</a></div>
+          <div class="contact-row"><span class="contact-name">Front Desk</span><a href="tel:12814492000">1-281-449-2000</a></div>
+          <div class="contact-row"><span class="contact-name">Emergency Hotline</span><a href="tel:12813714907">1-281-371-4907</a></div>
+        </div>
+        <div class="section">
+          <div class="section-title">Maintenance</div>
+          <div class="contact-row"><span class="contact-name">Facilities Mgr. (CBRE)</span><a href="tel:12816507130">1-281-650-7130</a></div>
+          <div class="contact-row"><span class="contact-name">Facilities Maint. (CBRE)</span><a href="tel:12817066365">1-281-706-6365</a></div>
+          <div class="contact-row"><span class="contact-name">Danial Siddiqui</span><a href="tel:12818859158">1-281-885-9158</a></div>
+        </div>
+        <div class="footer">Tap card to flip • Tap any number to call</div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card-back">
+        <div class="back-top">
+          <img src="HMH color LOGO.jpg" alt="HMH Logo" />
+        </div>
+
+        <div class="back-section">
+          <div class="back-section-title">Inclement Weather</div>
+          <ul>
+            <li>Shelter in place</li>
+            <li>Move to an internal room on the first floor without windows or glass walls</li>
+          </ul>
+        </div>
+
+        <div class="back-section">
+          <div class="back-section-title">Fire Emergency</div>
+          <ol>
+            <li>Initiate evacuation alarm</li>
+            <li>Evacuate building</li>
+            <li>Report fire to security</li>
+          </ol>
+        </div>
+
+        <div class="back-section">
+          <div class="back-section-title">Medical Emergency</div>
+          <div class="sub-title">Serious Medical</div>
+          <ol>
+            <li>Call 911</li>
+            <li>Call <a href="tel:12813714998">1-281-371-4998</a> to report medical emergency</li>
+          </ol>
+          <div class="sub-title">Minor Medical</div>
+          <ol>
+            <li>Contact First Responder</li>
+            <li>Contact HSSE</li>
+          </ol>
+        </div>
+
+        <div class="back-section">
+          <div class="back-section-title">Security Concern</div>
+          <div class="contact-row"><span class="contact-name">Main Gate Security</span><a href="tel:12813714917">1-281-371-4917</a></div>
+          <div class="contact-row"><span class="contact-name">Milner/Truck Security</span><a href="tel:12813714999">1-281-371-4999</a></div>
+        </div>
+
+        <div class="footer">Tap card to flip back</div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
